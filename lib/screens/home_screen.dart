@@ -203,8 +203,135 @@ class HomeScreen extends StatelessWidget {
                 }
               ),
             ),
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 15,vertical: 5),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    "Popular",
+                    style: TextStyle(
+                      fontSize: 22,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+                  TextButton(
+                      onPressed: (){},
+                      child: Text(
+                        "See all",
+                        style: TextStyle(
+                            fontSize: 17,
+                            fontWeight: FontWeight.bold,
+                            color: Color(0xFFFF2F08)
+                        ),
+                      )
+                  )
+                ],
+              ),
+            ),
+            SizedBox(
+              height: 220,
+              child: ListView.builder(
+                scrollDirection: Axis.horizontal,
+                shrinkWrap: true,
+                itemCount: foods2.length,
 
+                itemBuilder: (context,index){
+                  return InkWell(
+                    onTap: (){},
+                    child: Container(
+                      width: MediaQuery.of(context).size.width/1.4,
+                      margin: EdgeInsets.only(left: 15, top: 5 , bottom: 5,right: 5),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(15),
+                        color: Colors.white,
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.black12,
+                            blurRadius: 4,
+                            spreadRadius: 2
+                          )
+                        ]
+                      ),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          ClipRRect(
+                            borderRadius: BorderRadius.only(
+                              topLeft: Radius.circular(10),
+                              topRight: Radius.circular(10),
+                            ),
+                            child: Image.asset(
+                              "assets/images/${foods2[index]}.jpg",
+                              height: 120,
+                              width: MediaQuery.of(context).size.width/1.4,
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                          Padding(
+                            padding: EdgeInsets.only(left: 10),
+                            child: Row(
+                              mainAxisAlignment : MainAxisAlignment.spaceBetween,
+                              children: [
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
 
+                                  children: [
+                                    Text(
+                                      foods2[index],
+                                      style: TextStyle(
+                                        fontSize: 17,
+                                        fontWeight: FontWeight.bold
+                                      ),
+                                    ),
+                                    SizedBox(height: 5,),
+                                    Text(
+                                      "Fast Food",
+                                      style: TextStyle(
+                                        fontSize: 16,
+                                        color: Colors.black54
+                                      ),
+                                    ),
+                                    SizedBox(height: 5,),
+                                    Row(children: [
+                                      Icon(Icons.star , color: Color(0xFFFF2F08),),
+                                      SizedBox(width: 2,),
+                                      Text(
+                                        "4.7" ,
+                                        style: TextStyle(
+                                          fontWeight: FontWeight.bold
+                                        ),
+                                      ),
+                                      SizedBox(width: 5,),
+                                      Text(
+                                        "(941 Ratings)",
+                                        style: TextStyle(
+                                          color: Colors.black54
+                                        ),
+                                      )
+                                    ],)
+                                  ],
+                                ),
+                                Column(
+                                  
+                                  children: [
+                                    Padding(
+                                        padding: EdgeInsets.all(8),
+                                    )
+                                  ],
+                                )
+                              ],
+                            ),
+                          )
+                        ],
+                      ),
+
+                    )
+                  );
+                }
+              ),
+            ),
+            SizedBox(height: 50,)
           ],
         ),
       ),
